@@ -5,6 +5,11 @@ public class SavingsAccount extends BankAccount{
 	
 	private double interestRate;
 	
+			// We added constructor that REQUIRES rate be set at the creation time of SavingsAccount object
+	public SavingsAccount(double rate) {
+		interestRate = rate;
+	}
+	
 	public void setInterestRate(double rate) {
 		interestRate = rate;
 	}

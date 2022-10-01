@@ -2,8 +2,9 @@
 public class Main {
 
 	public static void main(String[] args) {
-		
-		SavingsAccount SA1 = new SavingsAccount();
+							
+												// added interest rate at the construction of SavingsAccount object
+		SavingsAccount SA1 = new SavingsAccount(0.02);
 		
 		SA1.deposit(1500);
 			
