@@ -26,7 +26,7 @@ public class CheckingAccount extends BankAccount{
 	
 	public void printData() {
 		System.out.println("Checking Bank Account");
-		System.out.println("Balance: " + balance + " Free Limit: " + " 3 trans.");
+		System.out.println("Balance: " + balance + " Free Limit: " + "3 trans.");
 	}
 
 }
