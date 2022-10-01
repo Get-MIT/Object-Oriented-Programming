@@ -10,12 +10,12 @@ public class Main {
 		T1.printTime();
 		
 			// Adding one hour to TimeStamp
-		T1.hour++; // Now the TimeStamp is 24:15:40 ! there is no such time in Earth
+		T1.increaseHour(); // Now the TimeStamp is 0:15:40 - Acceptable hour
 		
 			// Adding one hour to TimeStamp
-		T1.hour++; // Now the TimeStamp is 25:15:40 ! there is no such time in Earth
+		T1.increaseHour(); // Now the TimeStamp is 1:15:40 - Acceptable hour
 		
-			// Prints time nut it's wrong (25:15:40)
+			// Prints time and it's correct (1:15:40)
 		T1.printTime();
 	}
 
