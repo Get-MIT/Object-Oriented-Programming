@@ -3,8 +3,8 @@ public class DataSet {
 
 	private static int counter;
 	private double sum;
-	private BankAccount max;
-	private BankAccount min;
+	private Student max;
+	private Student min;
 
 
 	// it is nice to manually initialize variables so everyone who sees the code knows
@@ -17,20 +17,20 @@ public class DataSet {
 	}
 
 				// adding a BankAccount
-	public void add(BankAccount item) {
+	public void add(Student item) {
 
 		if (counter == 0 ) { // if this is the first BankAccount
 			max = item;
 			min = item;
 		}
-		else if (item.getBalance() > max.getBalance()) { // if this is the account with the higher balance until now
+		else if (item.getGPA() > max.getGPA()) { // if this is the account with the higher balance until now
 			max = item;
 		}
-		else if (item.getBalance() < min.getBalance()) { // if this is the account with the lower balance until now
+		else if (item.getGPA() < min.getGPA()) { // if this is the account with the lower balance until now
 			min = item;
 		}
 		counter++;	// increase counter by one (so we can know how many accounts we have
-		sum += item.getBalance();  // add the account balance to the sum of all accounts
+		sum += item.getGPA();  // add the account balance to the sum of all accounts
 	}
 	
 			// calculate average balance in accounts
@@ -45,12 +45,12 @@ public class DataSet {
 		
 	
 			// Return the highest balance account
-		public BankAccount getMax() {
+		public Student  getMax() {
 			return max;
 		}
 		
 			// Return the lowest balance account
-		public BankAccount getMin() {
+		public Student getMin() {
 			return min;
 		}
 
