@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,8 +16,8 @@ public class GUI extends JFrame {
 		board = new Board();
 		this.setContentPane(board);
 		
-		MouseClickListener listener = new MouseClickListener();
-		board.addMouseListener(listener);
+		MouseMoveListener listener = new MouseMoveListener();
+		board.addMouseMotionListener(listener);
 		
 		this.setVisible(true);	// makes this frame visible
 		this.setSize(400, 400);	// gives dimensions (400px x 400px) to the frame
@@ -65,10 +66,10 @@ public class GUI extends JFrame {
 		
 	}
 	
-	class MouseClickListener implements MouseListener{
+	class MouseMoveListener implements MouseMotionListener{
 
 
-		public void mouseClicked(MouseEvent e) {
+		public void mouseDragged(MouseEvent e) {
 			int x = e.getX();
 			int y = e.getY();
 			x = x - 20; // center circle on click point
@@ -78,14 +79,7 @@ public class GUI extends JFrame {
 		}
 
 		
-		public void mousePressed(MouseEvent e) {}
-
-		public void mouseReleased(MouseEvent e) {}
-	
-		public void mouseEntered(MouseEvent e) {}
-	
-		public void mouseExited(MouseEvent e) {}
-		
+		public void mouseMoved(MouseEvent e) {}
 		
 		
 	}
