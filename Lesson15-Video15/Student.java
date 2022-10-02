@@ -1,5 +1,8 @@
 
-public class Student {
+
+						// Change "extends" to "implements" to use "Measurable Interface", or keep "extends" to use
+						// "Measurable" as an abstract class
+public class Student extends Measurable{
 	
 	private double GPA;
 	
@@ -10,7 +13,7 @@ public class Student {
 	
 	
 	
-	public double getGPA() {
+	public double getMeasure() {
 	return GPA;
 	}
 
