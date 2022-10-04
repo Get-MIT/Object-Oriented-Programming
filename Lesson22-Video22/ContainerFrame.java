@@ -51,7 +51,7 @@ public class ContainerFrame extends JFrame {
 		centralPanel.setLayout(border);
 		
 		centralPanel.add(shipList, BorderLayout.NORTH); // Setting the list to be aligned UP (North)
-		//centralPanel.add(containerPanel, BorderLayout.CENTER); // Setting the containerPanel to be aligned to Center
+		centralPanel.add(containerPanel, BorderLayout.CENTER); // Setting the containerPanel to be aligned to Center
 		
 		this.setContentPane(centralPanel);	
 		
