@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Refrigerator extends Container {
 	
-	private static int counter = 0; // count how many containers we have
+	//private static int counter = 0; // count how many containers we have
 	private static int refrigeratorcounter = 0; // count how many refrigerator containers we have
 	
 	private double wattage;	
@@ -14,16 +14,11 @@ public class Refrigerator extends Container {
 	public Refrigerator(String anID, String aDestination, double kwatts) {
 		super(anID, aDestination);
 		wattage = kwatts;
-		counter++;
-	}
-	
-		// get the number of refrigerator containers
-	public int getCounter() {
-		return counter;
+		refrigeratorcounter++;
 	}
 	
 		// get the bulk container number
-	public int getBulkCounter() {
+	public int getRefrigeratorCounter() {
 		return refrigeratorcounter;
 	}
 	

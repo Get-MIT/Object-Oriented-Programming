@@ -12,16 +12,9 @@ public class Bulk extends Container {
 	public Bulk(String anID, String aDestination, double someweight) {
 		super(anID, aDestination);
 		weight = someweight;
-		counter++;
 		bulkcounter++;
 	}	
-	
-		// get the bulk container number
-	public int getCounter() {
-		return counter;
 		
-	}
-	
 		// get the bulk container number
 	public int getBulkCounter() {
 		return bulkcounter;

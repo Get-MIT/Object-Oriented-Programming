@@ -15,6 +15,8 @@ public class Main {
 		Refrigerator  cr2 = new Refrigerator("cr2", "Everest", 2.2);
 		Refrigerator  cr3 = new Refrigerator("cr3", "Everest", 3.2);
 		
+		System.out.println("Bulk: " + cb4.getBulkCounter() + "| Refrigerators: " + cr3.getRefrigeratorCounter() + "| Total: " + cb4.getCounter());
+		
 		ship1.setPowerCapacity(5);
 		
 		ship1.addBulkContainer(cb1);
@@ -37,6 +39,8 @@ public class Main {
 		
 		ship1.printInfo();
 		ship2.printInfo();
+		
+		
 		
 	}
 

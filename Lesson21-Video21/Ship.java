@@ -18,7 +18,7 @@ public class Ship {
 	private double powerLoad = 0;
 	
 	private String name;
-	private static int counter = 0; // count how many ships we have
+	private static int shipCounter = 0; // count how many ships we have
 	
 		// ArrayList of loaded containers
 	private ArrayList<Container> containers = new ArrayList<Container>();
@@ -28,7 +28,7 @@ public class Ship {
 		name = aName;
 		bulkCapacity = cont_capacity;
 		weightCapacity = max_payload;
-		counter++;
+		shipCounter++;
 	}
 	
 	
@@ -113,13 +113,13 @@ public class Ship {
 	
 		// get ships number
 	public int getCounter() {
-		return counter;
+		return shipCounter;
 	}
 	
 		//remove ship from given ArrayList
 	public void delete(ArrayList<Ship> array) {
 		array.remove(this);
-		counter--;
+		shipCounter--;
 	}
 	
 	public void printInfo() {
