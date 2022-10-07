@@ -2,10 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
-import javax.swing.DefaultListModel;
-import javax.swing.DefaultListModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,24 +10,24 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+
 public class ContainerFrame extends JFrame {
-	
+
 	private JTextField codeField;
 	private JTextField destinationField;
 	private JTextField weightField;
 	private JTextField powerField;
 	private JButton createBulkButton;
 	private JButton createRefrigeratorButton;
-	private JList shipList;
+	private JList<String> shipList;
 	private JPanel containerPanel;
 	private JPanel centralPanel;
-	private ArrayList<Ship> ships;
+	private static DefaultListModel<String> model = new DefaultListModel<String>();
 	
 		// Created grid layout with 2 rows and 3 columns
 	GridLayout grid = new GridLayout(3, 2);
 
-	public ContainerFrame(ArrayList<Ship> someShips) {
-		this.ships = someShips;
+	public ContainerFrame() {
 		
 		codeField = new JTextField("Code");
 		destinationField = new JTextField("Destination");
@@ -38,9 +35,10 @@ public class ContainerFrame extends JFrame {
 		powerField = new JTextField("Power");
 		createBulkButton = new JButton("Create Bulk");
 		createRefrigeratorButton = new JButton("Create Refrigerator");
-		shipList = new JList();
+		shipList = new JList<String>();
 		containerPanel = new JPanel();
 		centralPanel = new JPanel();
+		
 		
 		
 			// Added the grid layout on panel
@@ -60,14 +58,11 @@ public class ContainerFrame extends JFrame {
 		
 		centralPanel.add(shipList, BorderLayout.NORTH); // Setting the list to be aligned UP (North)
 		centralPanel.add(containerPanel, BorderLayout.CENTER); // Setting the containerPanel to be aligned to Center
-		
-			// Creating list model
-		DefaultListModel model = new DefaultListModel();
+				
 		
 			// Adding model items
-		for(Ship ship: ships) {
-			model.addElement(ship.getName());
-		}
+
+		
 			
 			// connecting model with list
 		shipList.setModel(model);
@@ -81,7 +76,16 @@ public class ContainerFrame extends JFrame {
 		this.setVisible(true);
 		this.setSize(400, 400);
 		this.setTitle("Container Frame");
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	}
+	
+		// I could make an abstract class (that would extend JFrame)
+		// to avoid rewriting this code an all 3 gui classes - but it's short code and just a copy paste
+	public static void refreshShipList() {
+		model.clear();
+		for(Ship ship: DataHandler.getAllShips()) {
+			model.addElement(ship.getName());
+		}
 	}
 	
 	class ButtonListener implements ActionListener{
@@ -91,7 +95,7 @@ public class ContainerFrame extends JFrame {
 			String destination = destinationField.getText();
 			String selectedShipName = shipList.getSelectedValue().toString();
 			Ship selectedShip = null;
-			for (Ship ship: ships) {
+			for (Ship ship: DataHandler.getAllShips()) {
 				if (ship.getName().equals(selectedShipName)) {
 					selectedShip = ship;
 				}
@@ -112,4 +116,5 @@ public class ContainerFrame extends JFrame {
 			System.out.println("Selected Ship Charge: " + selectedShip.getTotalCharge());
 		}
 	}
+	
 }

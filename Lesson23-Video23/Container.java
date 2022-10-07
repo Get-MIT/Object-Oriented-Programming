@@ -14,5 +14,9 @@ public abstract class Container {
 	
 		// adding abstract method to be able to use getCharge() on every container type
 	public abstract double getCharge();
+	
+	public String getCode() {
+		return this.code;
+	}
 
 }
