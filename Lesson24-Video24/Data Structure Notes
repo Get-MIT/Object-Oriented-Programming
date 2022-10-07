@@ -1,0 +1,45 @@
+Data Structures Notes
+
+
+When we create our own data structures:
+	
+	- Creating a list:			
+		NameElement			
+		----------			
+		Name				
+		next				
+		----------			
+		getName()			
+		getNext()			
+		setName()			
+		setNext()			
+		
+
+		LISTS:
+			can have same object more than once
+			must have indexes
+			
+		SETS:
+			don't have indexes
+			can't contain the same object many times
+			
+			
+	JAVA has the Java Collections Framework (java.util.Collection)
+		it's a set of interfaces and classes
+			all collections have some methods like add, remove, contains, size etc...
+				
+				LIST collections have extra methods like get(index), set(index)
+					ArrayList, LinkList...
+					
+				SET collections like TreeSet have extra methods like hashCode()
+					HashSet, TreeSet
+			
+				QUEUE collections 
+					Queues have the logic that objects are "waiting" to use them, and first in will be the first out
+					(like a printer printjob queue)
+			
+				MAP collections
+					maps are mostly used for couples of key and value
+					
+					
+					
