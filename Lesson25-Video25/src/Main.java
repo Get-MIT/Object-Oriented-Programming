@@ -4,29 +4,55 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-			// Doesn't extracts items in order
-			// Also HashSet can't have same object second time - could be used to ensure that all items are singular
-		Collection<String> list = new ArrayList<>();
+
+		Collection<String> set1 = new HashSet<String>();
 		
-		list.add("John");
-		list.add("Nick");
-		list.add("Mary");
-		list.add("John");
+		set1.add("A");
+		set1.add("B");
+		set1.add("C");
+		set1.add("D");
 		
-		System.out.println("---ArrayList----");
-		for (String name: list) {
-			System.out.println(name);
+		Collection<String> set2 = new HashSet<String>();
+		
+		set2.add("D");
+		set2.add("E");
+		set2.add("F");
+		
+			// returns true if set2 is a subset of set1
+		if (set1.contains(set2)) {
+			System.out.println("set2 is a subset of set1");
+		}
+		else {
+			System.out.println("set2 is NOT a subset of set1");
 		}
 		
-			//Adding the ArrayList list to the HashSet set
-		Collection<String> set = new HashSet<>(list);  
 		
-		
-			// Doesn't allow same object twice
-		System.out.println("---TreeSet----");
-		for (String name: set) {
-			System.out.println(name);
+			// returns the union of set1 and set2
+		set1.addAll(set2); // addAll() Adds everything from set2 in set1
+		System.out.println("---Union----");
+		for(String s: set1) {
+			System.out.println(s);
 		}
+		
+		
+			// returns the intersection of set1 and set2
+		set1.retainAll(set2); // retainAll() Discards everything from set1 except what is common with set2
+		System.out.println("---Intersection----");
+		for(String s: set1) {
+			System.out.println(s);
+		}
+		
+		
+		// Transforms set1 into the difference of set1 and set2
+		set1.add("X");
+		System.out.println(set1);
+		System.out.println(set2);
+		set1.removeAll(set2); // removeAll() Discards everything from set1 that is common with set2
+		System.out.println("---Difference----");
+		for(String s: set1) {
+			System.out.println(s);
+		}
+		
 		
 		
 	}
