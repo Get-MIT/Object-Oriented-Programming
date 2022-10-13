@@ -6,7 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/user1/Downloads/JFreeChart/jfreechart-1.0.19.jar"/>
-	<classpathentry kind="lib" path="C:/Users/user1/Downloads/JFreeChart/jcommon-1.0.23.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

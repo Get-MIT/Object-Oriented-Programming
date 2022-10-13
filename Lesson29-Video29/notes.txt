@@ -21,6 +21,9 @@ After Video time 26:00 keeping notes about Testing and JUnit:
 		add features (e.g. we added a method in a class) we can perform all the already passed
 		tests again from the beginning, to ensure that we didn't broke anything else.
 
+		* Test First Approach is when you write the testing method before you write the code
+		By doing this you got the tests before you complete the code, and the most important
+		means that you know very well what exactly you want to do with the code.
 		
 		
 	- JUnit
