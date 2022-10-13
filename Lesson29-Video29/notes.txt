@@ -1,0 +1,27 @@
+After Video time 26:00 keeping notes about Testing and JUnit:
+
+ 	- TESTING
+		* Unit Testing is many tests performed on small parts of code (like methods)
+		that can be performed by a single programmer on his own code (before he merges
+		it with the code of other programmers). These tests should all be kept and
+		performed again after code changes.
+		
+		* Integration Testing is the testing of the merged code of many programmers that
+		they can perform together and shows if the parts of code communicate as it should
+		with the other parts
+		
+		* System Testing is the testing of the merged code of many programmers that
+		they can perform together and shows if the total code produces the results that 
+		it should
+		
+		* Client Requirement Testing is done to check if the program meets the client's
+		requirements
+		
+		* We should keep all the unit tests we perform somewhere in our project, so when we
+		add features (e.g. we added a method in a class) we can perform all the already passed
+		tests again from the beginning, to ensure that we didn't broke anything else.
+
+		
+		
+	- JUnit
+		It's a very popular tool to perform "Unit Testing"
