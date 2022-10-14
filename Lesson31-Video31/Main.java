@@ -1,40 +1,43 @@
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
 
 public class Main {
 			
 	public static void main(String[] args) {
 		
-		Employee e = new Employee("John");
+		Employee e = null;
 		
 		File file = new File("C:\\Users\\user1\\Downloads\\emploee.ser");
 		
 		try {
-				// FileOutputStream is low level and writes byte to byte, so we will wrap it inside an ObjectOutputStream
-			FileOutputStream fileOutStream = new FileOutputStream(file);
+				// FileInputStream is low level and reads byte by byte, so i will wrap it with an ObjectInputStream
+			FileInputStream fInputStream = new FileInputStream(file);
 			
-			ObjectOutputStream outStream = new ObjectOutputStream(fileOutStream);
+			ObjectInputStream inputStream = new ObjectInputStream(fInputStream);
+					
+								// We can call readObject() many times and it will return the next object every time, but it's not a good practice to
+								// store many objects separately in a file, it's better to store them as an arraylist and save and read the whole arraylist.
+			e = (Employee) inputStream.readObject();
 			
-					// we call writeObject() and passing the employee object "e" to it.
-			outStream.writeObject(e); // It won't work until we make employee AND ALL IT'S PROPERIES Serializable (until it implements Serializable)
+			inputStream.close(); // closing ObjectInputStream
+			fInputStream.close(); // closing FileInputStream
 			
-			outStream.close(); // Closing ObjectOutputStream
-			fileOutStream.close(); // Closing FileOutputStream
-			System.out.println("Employee has been written");
-		} catch (FileNotFoundException fileNotFoundException) { // i changed the name of exception object
+		} catch (ClassNotFoundException classNotFoundException) { // May the object returned is something unknown (doesn't exist in any of our classes)
+			classNotFoundException.printStackTrace();
+		}
+		
+		catch (FileNotFoundException fileNotFoundException) { // i changed the name of exception object
 			
 			fileNotFoundException.printStackTrace();
 		} catch (IOException ioException) { // i changed the name of exception object
 
 			ioException.printStackTrace();
 		}
-		
-		
-		
-		
+		System.out.println("Deserialization performed");
+		System.out.println("Employee: " + e.getName());
 		
 	}
 }
