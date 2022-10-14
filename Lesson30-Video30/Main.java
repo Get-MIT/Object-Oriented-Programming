@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 public class Main {
-
+			
 	public static void main(String[] args) {
 		
 		ArrayList<String> names = new ArrayList<String>();
@@ -20,16 +20,26 @@ public class Main {
 		try {
 			FileWriter writer = new FileWriter(namesFile);
 			for (String name: names) {
+				
+					// Invoker
 				writer.write(name);
 				writer.write(System.lineSeparator()); // Asks system's line separator character
 			}
 			writer.close();
+				// Operation
 			System.out.println("File has been written");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+					
+					// Handling
+			System.out.println("Could NOT Write to file, trying again");
+				
+				// Exception
 			e.printStackTrace();
+			
+				// Backtrack
+			// We may call another method to try again to write the file (would be called backtrack)
 		}
 		
+		
 	}
-
 }

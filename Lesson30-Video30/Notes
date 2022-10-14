@@ -1,0 +1,128 @@
+
+- Java Exceptions -
+	
+	TERMINOLGY:
+		Operation: Normal operation, the part of code when no error / exception is present.
+		
+		Invoker: The method that calls the method that produces the exception and may manage
+			the exception that may occur.
+		
+		Exception: A Java Object that contains the full information of the error.
+		
+		Raise (AKA Throw in Java): Sending / passing / sending back the exception from Operation
+			to the Invoker. (AKA Emit)
+		
+		Handle (AKA Catch in Java): The response of Invoker to the exception. (The code that is
+			executed to handle or bypass the error)
+		
+		Backtrack: The ability to restore to a previous point of the program (before the exception)
+			that allows the program to continue and overcome the exception.
+		
+		
+	Main Causes of Exceptions:
+		Hardware - dividing by zero, segmentation fault, overflow, alignment error
+			Every error due to hardware.
+		
+		Software - trying to open a file that doesn't exist
+			Every error due to software.
+			
+		Domain Failure - Null Pointer Exception, Assigning letters to an integer, Out of index in an array
+			Every unacceptable value for a function.
+			
+			
+	A program may handle an exception with 3 ways:
+		Ignore the exception (not all but some exceptions can be ignored)
+		
+		Handle the exception at the point it was produced (like showing a message to the user)
+		
+		Handle it in another point of the program (like passing the exception to a log writing class)
+		
+	
+	There are 2 types of exceptions:
+		Unchecked Exceptions: Exceptions that is not necessarily to handle them.
+			Like trying to read an integer from input and may get a letter, (compiler will not complain
+			that it may produce an exception and demand to handle it)
+		
+		Checked Exceptions: 
+			The exceptions that must handled or must specified in methods signature.
+			Like trying to read a file (the file may not exist), so the compiler demands to
+			handle the exception or specify above the method that it throws exception
+	
+			
+	Java Reserved Keywords for Exceptions:
+	 	Throws: specifies about the kinds of exceptions that may occur from a method.
+	 	
+	 	Throw: Creates an exception and forwards it to the first available exception handler.
+	 	
+	 	try & catch: try is the block of code that i am trying to execute and may an exception occur
+	 		and catch is the block of code that will be executed in case an exception occurs. We may
+	 		have many catch blocks with different king of exceptions in each.
+	 		
+	 	finally: is the code block after the try & catch and will be executed no matter if we had or
+	 		not an exception.
+		
+		
+	Advantages of using exceptions:
+		We avoiding the "spaghetti code". We don't need to have cascaded if and else to check for a fault code.
+		
+		We can pass the error upper and upper to the call stack, and handle the error on an upper method in the
+			call stack. (e.g.: method1 -> method2 -> method3 -> readFile) we specify "throws exception" in the
+			signatures of readFile, method3, method2, and the exception is passed back to method1 for handling.
+			
+		We can categorize the exceptions and handle them separately.
+		
+		
+	JAVA EXCEPTION HIERARCHY
+		
+		superclass and subclasses 
+		
+		https://journaldev.nyc3.digitaloceanspaces.com/2013/07/exception-hierarchy.png
+		
+		https://cdn.rollbar.com/wp-content/uploads/2021/07/java-exceptions-hierarchy-example.png
+		
+		https://facingissuesonitcom.files.wordpress.com/2019/01/c5b81-java-exception-heirarchy.jpg
+		
+		
+	I can also create my own exception class (subclass).
+	
+	
+
+- Data Files - 
+
+	java.io contains classes to handle data files
+	
+	we have 2 data file types:
+		Text Files: files that contain text readable by human. These files can be (with the proper methods)
+		read from another program.
+			In Text files we convert our data to store them in readable (alphanumeric) format.
+			(e.g.: to store an array that contains integers, we have to store the integers and the indexes
+			that store them.
+			Classes that write and read text files are called Writers and Readers
+		
+		Binary Files: can not be read by human and can't be read by another program that internally
+		the data is represented in a different way than our program.
+			In Binary files the data are stored as is - as they exist in computers memory.
+			(e.g.: we can store an object like an array as it exists in memory, this process
+			is called serialization.)
+			Classes that write and read binary files are referred as Streams
+	
+	Objects of class File can represent a Directory or a File inside a Directory.
+		File myDir = new File("C:\\projects\\files"); 
+		File myFile = new File(myDir, "data.txt");
+		File myFile = new File("C:\\projects\\files", "data.txt"); 
+		File myFile = new File("C:\\projects\\files\\data.txt"); 
+		
+		File Object has methods like "exists(), isDirectory(), getName() etc...
+		
+		The process of writing a file is:
+			Opening the file
+			Reading / Writing
+			Closing the file
+		
+		
+		
+		
+		
+		
+		
+		
