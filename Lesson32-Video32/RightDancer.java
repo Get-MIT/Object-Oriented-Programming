@@ -11,12 +11,12 @@ import becker.robots.*;
  * I am NOT sure that the code is correct (the same as in the video)
  */
 
-public class RightDancer {
+public class RightDancer extends Dancer {
 	
-	private RobotSE robot;
+	//private RobotSE robot;
 	
 	public RightDancer(City c, int str, int ave, Direction dir) {
-		robot = new RobotSE(c, str, ave, dir);
+		super(c, str, ave, dir);
 		robot.setLabel("R");
 	}
 	
