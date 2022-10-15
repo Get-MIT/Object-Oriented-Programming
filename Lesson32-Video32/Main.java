@@ -1,17 +1,26 @@
-/*
- *  This project shows serialization and deserialization - It writes an ArrayList() to a
- *  binary file and then reads it back.
- * 
- *  In order to be able to Serialize (store objects to a binary file), all the objects (
- *  ArrayList, Employee, and every property of Employee must implement Serializable interface
- *  in order to be able to store them.
- */
+import becker.robots.*;
+
 
 public class Main {
 			
 	public static void main(String[] args) {
+		City stage = new City();
+		LeftDancer[] chorusline = new LeftDancer[2];
+		RightDancer[] chorusline2 = new RightDancer[2];
 		
-		new SerializationDemo();
+		
+		// initialize the array
+		chorusline[0] = new LeftDancer(stage, 1, 0, Direction.EAST);
+		chorusline[1] = new LeftDancer(stage, 3, 0, Direction.EAST); 
+		chorusline2[0] = new RightDancer(stage, 2, 0, Direction.EAST); 
+		chorusline2[1] = new RightDancer(stage, 4, 0, Direction.EAST); 
+		
+		for (int i=0; i < chorusline.length; i++) {
+			chorusline[i].move();
+		}
+		for (int i=0; i < chorusline2.length; i++) {
+			chorusline2[i].move();
+		}
 		
 	}
 }
