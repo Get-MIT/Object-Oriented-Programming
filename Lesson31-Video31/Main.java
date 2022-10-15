@@ -20,7 +20,7 @@ public class Main {
 					
 								// We can call readObject() many times and it will return the next object every time, but it's not a good practice to
 								// store many objects separately in a file, it's better to store them as an arraylist and save and read the whole arraylist.
-			e = (Employee) inputStream.readObject();
+			e = (Employee) inputStream.readObject(); // We have to cast the returned object to Employee - because readObject returns a generic object.
 			
 			inputStream.close(); // closing ObjectInputStream
 			fInputStream.close(); // closing FileInputStream
